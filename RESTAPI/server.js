@@ -554,6 +554,12 @@ app.get('/getStudent/:id', (req, res) => {
 
 );
 
+app.get('/jsonAPI', (req, res) => {
+    res.render('JSONDB');
+});
+
+
+
 
 
 app.listen(port, () => {
