@@ -1,21 +1,25 @@
 # Systems-Integration
 
 ## Setup VM
-- [ ] <a href="https://raw.githubusercontent.com/MurtadhaM/Infrastructure/main/Automation/DigitalOcean%20API/CreateDropletWithSSHKey.sh"> Create VM </a>
+- [ ] <a href="#Hosting"> Create VM </a>
 - [ ] <a href="#Packages"> Install Dependencies</a>
-- [ ] <a href="#FIREWALL"> Setup Firewall </a>
-- [ ] <a href="#NGINX"> Setup Nginx</a>
-- [ ] Setup NodeJS
-- [ ] Setup Database
-- [ ] Setup REST API
-- [ ] Setup Frontend
-- [ ] Start ALL THE SERVICES
+- [ ] <a href="#Nginx"> Setup Nginx</a>
+- [ ] <a href="#Node"> Setup Node</a>
+- [ ] <a href="#Database"> Setup Database</a>
+- [ ] <a href="#RESTAPI"> Setup REST API</a>
+- [ ] <a href="#Frontend"> Setup Frontend</a>
+- [ ] <a href="#Start"> Start ALL THE SERVICES</a>
+
+# HOSTING
+```
+curl -L https://raw.githubusercontent.com/MurtadhaM/Infrastructure/main/Automation/DigitalOcean%20API/CreateDropletWithSSHKey.sh | bash
+```
+
 
 # Packages
- yum install epel-release yum-utils -y
- yum install nginx -y
- yum install firewalld -y
- yum install nodejs -y
+yum install epel-release yum-utils -y
+yum install nginx -y
+yum install nodejs -y
 yum install nano -y
 yum install tmux -y
 yum install zsh -y
@@ -24,6 +28,21 @@ yum install zsh -y
 yum install zsh-syntax-highlighting -y
 yum install zsh-autosuggestions -y
 yum install zsh-completions -y
+yum install pm2 -y
+
+# Nginx
+```
+curl -L https://raw.githubusercontent.com/MurtadhaM/Systems-Integration/main/Nginx.sh | bash
+```
+
+# Node
+```
+curl -L https://raw.githubusercontent.com/MurtadhaM/Systems-Integration/main/NodeJS.sh | bash
+```
+
+# Database
+```
+
 
 
 
