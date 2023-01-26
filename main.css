@@ -1,0 +1,105 @@
+.card-footer-item button{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.output{
+    width: 60%;
+}
+
+#output{
+    
+    margin: 0 auto;
+    margin-left: 30%;
+    margin-right: 30%;
+
+}
+#addStudentForm{
+    width: 60%;
+    margin: 0 auto;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#addStudentForm button{
+
+    width: 60%;
+    margin: 0 auto;
+    margin-left: 20%;
+    margin-right: 20%;    }
+
+#getStudentsForm button{
+  
+    width: 60%;
+    margin: 0 auto;
+    margin-left: 20%;
+    margin-right: 20%;  
+
+}
+#getStudentsForm{
+    margin: 0 auto;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.option{
+    margin: 0 auto;
+    text-align: center;
+    list-style-type: none;
+    width: 100%;
+   
+}
+.option:hover{
+    background-color: #00d1b2;
+    height: 100%;
+    color: white;
+}
+.input-error{
+    outline: 1px solid red;
+  }
+#DROP{
+
+    width: 80%;
+    border: none !important;
+    margin: 0 auto;
+    /*
+    SHADOW REMOVED
+    */
+    box-shadow: none !important;
+
+
+}
+#SECTION{
+    text-align: center;
+    color: #00d1b2;
+    width: 100%;
+    font-size: 1.5rem;
+    margin: 0 auto;
+    padding: 0;
+    border: none !important;
+    box-shadow: none !important;
+}
+#swagger{
+
+    width: 40%;
+    margin: 0 auto;
+    margin-left: 30%;
+    margin-right: 20%;  
+    margin-bottom: 3%;
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+    background-color: #d10000;
+    border: 2px solid rgb(238, 255, 0);
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0);
+    padding: 0.5rem;
+
+}
+#swagger:hover{
+    background-color: #0081d1;
+    color: white;
+    border: 2px solid rgb(238, 255, 0);
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0);
+    padding: 0.5rem;
+}

@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mariadb": "^3.0.2",
+    "node-cors": "^1.0.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-jsdoc-express": "^4.1.0",
+    "swagger-ui-express": "^4.6.0"
+  }
+}

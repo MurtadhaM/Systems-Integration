@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>REST API</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- AXIOS -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css" />
+    <script defer src="main.js"></script>
+    <!-- JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.js"
+        integrity="sha512-MnKz2SbnWiXJ/e0lSfSzjaz9JjJXQNb2iykcZkEY2WOzgJIWVqJBFIIPidlCjak0iTH2bt2u1fHQ4pvKvBYy6Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.css"
+        integrity="sha512-VSD3lcSci0foeRFRHWdYX4FaLvec89irh5+QAGc00j5AOdow2r5MFPhoPEYBUQdyarXwbzyJEO7Iko7+PnPuBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <h1 class="title has-text-centered">REST API</h1>
+    <a href="/api-docs" target="_blank">
+    <button id="swagger" class="button is-primary">
+        Swagger UI
+    </button>
+    </a>    
+    <div id="getStudentsForm">
+        <div class="field">
+            <div class="control">
+                <button id="getStudentsBTN" class="button is-primary"> Get Students
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="addStudentForm">
+        <div class="field">
+            <div class="control">
+                <button id="ShowModal" class="button is-primary">
+                    Add Student
+                </button>
+            </div>
+        </div>
+    </div>
+    <h1 id="output">
+
+    </h1>
+
+    </div>
+
+
+
+    <div id="modal-js-example" class="modal">
+        <div class="modal-background"></div>
+
+        <div class="modal-content">
+            <div class="box">
+                <p>Updat/Add User</p>
+                <div id="addStudentForm">
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Name</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" id="NAME" type="text" placeholder="Name">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Title</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" id="TITLE" type="text" placeholder="Title">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Class</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input id="CLASS" class="input" type="text" placeholder="Class">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Section</label>
+                        </div>
+                        <div id="DROP" class="input dropdown">
+                            <div class="input dropdown-trigger">
+                                <span id="SECTION" class="input " type="hidden" placeholder="A" value="A">A</span>
+
+
+
+                            </div>
+                            <div class="field-body">
+
+                            </div>
+                            <div class="input dropdown-menu" id=" dropdown-menu" role="menu">
+                                <div class="dropdown-content">
+                                    <li class="option" placeholder="Section" value="A" type="list"> A</li>
+                                    <hr class="dropdown-divider">
+                                    <li class="option" placeholder="Section" value="B" type="button"> B </li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Roll ID</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" id="ROLLID" type="text" placeholder="Roll ID">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="field is-horizontal">
+                        <div class="field-label">
+                        </div>
+                        <div class="field-body
+                        ">
+                            <div class="field">
+                                <div class="control">
+                                    <button id="addStudentBTN" class="button is-primary">
+                                        Add Student
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="closeModalButton" class="button is-primary">Close</button>
+            </div>
+        </div>
+
+        <button id="closeModalButton" class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+
+    <body>
+
+    </body>
+
+</html>
