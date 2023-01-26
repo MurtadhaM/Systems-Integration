@@ -228,7 +228,7 @@ getStudents();
 function getStudents(){
     // Reset the output div
     document.getElementById("output").innerHTML = "";
-    axios.get('http://localhost:8080/getStudents/',
+    axios.get('http://45.55.32.24:8080/getStudents/',
     {
         headers: {
             'Access-Control-Allow-Origin': '*',
@@ -302,7 +302,7 @@ function addStudent(){
 
     console.log(name);
 
-    axios.post('http://localhost:8080/addStudent',
+    axios.post('http://45.55.32.24:8080/addStudent',
     {
         NAME: name,
         TITLE: title,
@@ -342,7 +342,7 @@ function deleteStudent(id){
     var student = document.getElementById(id);
     
     
-    axios.delete('http://localhost:8080/deleteStudent/'+id,
+    axios.delete('http://45.55.32.24:8080/deleteStudent/'+id,
     
    
     {
@@ -385,7 +385,7 @@ function updateStudent(id){
 
     console.log(name);
 
-    axios.put('http://localhost:8080/updateStudent/'+id,
+    axios.put('http://45.55.32.24:8080/updateStudent/'+id,
     {
         NAME: name,
         TITLE: title,

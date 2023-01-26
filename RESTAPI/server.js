@@ -51,7 +51,7 @@ app.use(function (req, res, next) {
  * 
  */
 
-const hostname = 'localhost';
+const hostname = '45.55.32.24';
 const port = 8080;
 
 //Swagger
@@ -73,7 +73,7 @@ let swaggerDocument = {
             "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         }
     },
-    "host": "localhost:8080",
+    "host": "45.55.32.24:8080",
     "basePath": "/",
     "tags": [
         {
@@ -557,6 +557,6 @@ app.get('/getStudent/:id', (req, res) => {
 
 
 app.listen(port, () => {
-    console.log(` app listening at http://localhost:${port}`)
+    console.log(` app listening at http://45.55.32.24:${port}`)
 }
 );
