@@ -1,12 +1,27 @@
-# Systems-Integration
+<h1 align="center"> <img src="https://img.icons8.com/ios-filled/200/greek-helmet.png" width=10%/>  Systems Integration </h1>
 
-## Setup VM
-- [ ] <a href="#Hosting"> Create VM </a>
+# Description
+
+
+-  This Repo is for the Systems Integration Class at the University of North Carolina at Charlotte.
+
+
+|<img src="https://assets.pngwing.com/public/css/checkmark.svg" width="40%">      |   <img src="https://icon-library.com/images/icon-for-technology/icon-for-technology-10.jpg" width="40%">    |
+|:------------------:|:---------------:|
+|  Theory | Practice |
+
+
+# Table of Contents
+- [ ] <a href="#Setup"> Setup VM </a>
+- [x] <a href="#Hosting"> Create VM </a>
 - [ ] <a href="#Packages"> Install Dependencies</a>
 - [ ] <a href="#Nginx"> Setup Nginx</a>
 - [ ] <a href="#Node"> Setup Node</a>
 - [ ] <a href="#Database"> Setup Database</a>
 - [ ] <a href="#Start"> Start ALL THE SERVICES</a>
+
+
+
 
 # HOSTING
 ```
