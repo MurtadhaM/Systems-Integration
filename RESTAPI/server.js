@@ -51,7 +51,7 @@ app.use(function (req, res, next) {
  *
  */
 
-const hostname = '45.55.32.24';
+const hostname = 'localhost';
 const port = 8080;
 
 //Swagger
@@ -139,6 +139,36 @@ let swaggerDocument = {
                 }
             }
         },
+
+        "/getAgents": {
+            "get": {
+                
+                "tags": [
+                    "getAgents"
+                ],
+                "summary": "Get all agents",
+                
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Student"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                }
+            }
+        },
+
 
         "/getstudents": {
             "get": {
@@ -245,6 +275,52 @@ let swaggerDocument = {
                 }
             }
         },
+        "/patchStudent/{id}": {
+            "patch": {
+                "tags": [
+                    "student"
+                ],
+                "summary": "Updates a student in the store with form data",
+                "description": "",
+                "operationId": "patchStudent",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "status",
+                        "in": "formData",
+
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        
         "/deleteStudent/{id}": {
             "delete": {
                 "tags": [
@@ -321,6 +397,30 @@ let swaggerDocument = {
         }
     },
     "definitions": {
+        "agent": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Agent status in the store",
+                    "enum": [
+                        "available",
+                        "pending",
+                        "sold"
+                    ]
+                }
+                
+            }
+        },
+
+
         "Student": {
             "type": "object",
             "properties": {
@@ -643,7 +743,81 @@ app.get('/say',  (req, res) => {
             );
 
 
+            app.get('/getAgents',  (req, res) => {
+            
+                pool.getConnection()
+                .then(conn => {
+                    conn.query("SELECT * FROM sample.agents")
+                        .then((rows) => {
+                            if (rows.length == 0) {
+                                res.json({ "error": "No agents" });
+                                conn.end();
+                            } else {
+                                res.status(200).json(rows);
+                                conn.end();
+                            }
+                        })
+                        .catch(err => {
+                            res.json({ "error": err });
+                            conn.end();
+                        }
+                        )
+                })
+                .catch(err => {
+                    res.json({ "error": err });
+                }
+                );
+        }
+            );
 
+
+
+            app.patch("/patchStudent/:id", (req, res) => {
+                let ROLLID = req.params.id;
+                let NAME = req.body.NAME;
+                let TITLE = req.body.TITLE;
+                let CLASS = req.body.CLASS;
+            
+                let SECTION = req.body.SECTION;
+                if (NAME == null || TITLE == null || CLASS == null || SECTION == null || ROLLID == null) {
+                    res.json({ "error": "Missing required information" });
+                    return;
+            
+                }
+                // Check if the id is a number
+                if (req.body.ROLLID != null && isNaN(req.body.ROLLID)) {
+                    res.status(400);
+                    res.json({ "error": "ROLLID must be a number" });
+            
+                    return;
+                }
+                pool.getConnection()
+            
+                    .then(conn => {
+            
+                    conn.query("UPDATE sample.student SET NAME = ?, TITLE = ?, CLASS = ?, SECTION = ? WHERE ROLLID = ?", [NAME, TITLE, CLASS, SECTION, ROLLID])
+                        
+                        .then((rows) => {
+                            res.json({ "success": "Student updated successfully" });
+                            conn.end();
+                        }
+                        )
+                        .catch(err => {
+                            res.json({ "error": err });
+                            conn.end();
+                        })
+                })
+            
+                    .catch(err => {
+                        res.json({ "error": err });
+                    });
+            }
+
+
+
+            );
+
+            
 app.listen(port, () => {
     console.log(` app listening at http://45.55.32.24:${port}`)
 }

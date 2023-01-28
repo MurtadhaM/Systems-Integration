@@ -27,6 +27,12 @@ function setInputFilter(textbox, inputFilter, errMsg) {
   }
   
 $(document).ready(function(){
+
+    $(document).on('click', '#getAgentsBTN', function(){
+        getAgents();
+    }
+    );
+
     // INPUT VALIDATION
     setInputFilter(document.getElementById("ROLLID"), function(value) {
         return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 500); }, "Must be between 0 and 500");
@@ -413,4 +419,46 @@ function updateStudent(id){
     
         notifyToast(error.response.data, "error");
     });
+}
+
+// Get all agents from the database
+function getAgents(){
+    // Reset the output div
+    document.getElementById("output").innerHTML = "";
+    axios.get('/getAgents', {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        crossDomain:true,
+    })
+    .then(function(response){
+
+        //* For each agent in the response, create a div with the agent's name and id
+        for (var i = 0; i < response.data.length; i++){
+            var agent = response.data[i];
+            var agentCard = `<div class="agent"> 
+            <div class="card">
+                <div class="card-content">
+<ul>                  <p class="title has-text-centered">
+<li class="card-title" >                <span>Agent Name: </span>    ${agent.AGENT_NAME}</li>
+<li>              <span>Agent Country: </span>            ${agent.WORKING_AREA}</li>
+<li>              <span>Agent Commission: </span>             ${agent.COMMISSION}</li>
+<li>             <span>Agent Phone Number: </span>              ${agent.PHONE_NO}</li>
+
+      
+                    </p>
+      
+                    </ul>
+                </footer>
+              </div>    
+            </div>`
+
+            document.getElementById("agent-list").innerHTML += agentCard;
+        }   
+    }).catch(function(error){
+        console.log(error);
+
+    });
+
+
 }
