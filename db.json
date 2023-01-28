@@ -1,0 +1,18 @@
+{
+  "posts": [
+    {
+      "title": "Snakes & Where to Find Them",
+      "author": "Murtadha Marzouq",
+      "id": 1
+    },
+    {
+      "title": "Love and Other Things",
+      "author": "Murtadha Marzouq",
+      "id": 2
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "Murtadha Marzouq"
+  }
+}
